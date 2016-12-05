@@ -1,0 +1,13 @@
+---
+# default role parameters
+
+webminPort: 10000
+webminSSL: 1
+webminTheme: authentic-theme
+webminInstallOpenvpn: 'yes'
+
+
+
+
+
+
