@@ -1,0 +1,10 @@
+---
+
+- hosts: south1
+  roles:
+    - webmin
+
+- hosts: south2
+  roles:
+    - {role: webmin, webminPort: 1999}
+
