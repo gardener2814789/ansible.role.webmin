@@ -4,14 +4,24 @@
   ping:
 
 - name: Set Webmin repository
-  apt_repository: repo='deb http://download.webmin.com/download/repository sarge contrib' state=present
+  apt_repository: 
+    repo: 'deb http://download.webmin.com/download/repository sarge contrib' 
+    state: present 
+    update_cache: yes
 
 - name: Set Webmin repository key
-  apt_key: url=http://www.webmin.com/jcameron-key.asc state=present
+  apt_key: 
+    url: http://www.webmin.com/jcameron-key.asc 
+    state: present
 
-- name: Install Webmin
-  apt: pkg=webmin state=latest update_cache=true
-  notify: Start Webmin
+- name: Install apt-transport-https 
+  apt: 
+    pkg: "{{ item.pkg }}" 
+    state: latest 
+    update_cache: yes
+  with_items:
+    - { pkg: apt-transport-https }
+    - { pkg: webmin }
 
 - name: Change Webmin conf file
   replace: 

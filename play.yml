@@ -2,9 +2,9 @@
 
 - hosts: south1
   roles:
-    - webmin
-
+    - { role: webmin, webminTheme: blue-theme, webminInstallOpenvpn: 'no' }
+    
 - hosts: south2
   roles:
-    - {role: webmin, webminPort: 1999}
+    - { role: webmin, webminPort: 1999 }
 
